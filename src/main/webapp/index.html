@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTT 설문조사</title>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<style>
+
+/* Styling the Body element i.e. Color,
+        Font, Alignment */
+body {
+	background-color: #E0FFFF;
+	font-family: Verdana;
+	text-align: center;
+}
+
+/* Styling the Form (Color, Padding, Shadow) */
+form {
+	background-color: #fff;
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 30px 20px;
+	box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling form-control Class */
+.form-control {
+	text-align: left;
+	margin-bottom: 25px;
+}
+
+/* Styling form-control Label */
+.form-control label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+/* Styling form-control input,
+        select, textarea */
+.form-control input, .form-control select, .form-control textarea {
+	border: 1px solid #777;
+	border-radius: 2px;
+	font-family: inherit;
+	padding: 10px;
+	display: block;
+	width: 95%;
+}
+
+/* Styling form-control Radio
+        button and Checkbox */
+.form-control input[type="radio"], .form-control input[type="checkbox"]
+	{
+	display: inline-block;
+	width: auto;
+}
+
+/* Styling Button */
+button {
+	background-color: #E0FFFF;
+	border: 1px solid #777;
+	border-radius: 2px;
+	font-family: inherit;
+	font-size: 21px;
+	display: block;
+	width: 100%;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+</style>
+</head>
+
+<body>
+	<h1>OTT 설문조사</h1>
+
+	<!-- Create Form -->
+	<form id="form" action='controller' method="post">
+	
+		<!-- OTT 종류  -->
+		<div class="form-control">
+            <label>
+                1. 사용하시는 OTT 서비스를 골라주세요.(가장 많이 이용하시는 걸 골라주세요.)
+            </label>
+            <!-- Input Type Radio Button -->
+            <label for="recommend1_1">
+                <input type="radio" id="recommend1_1" name="recommend1" value="넷플릭스">넷플릭스</input>
+            </label>
+            <label for="recommend1_2">
+                <input type="radio" id="recommend1_2" name="recommend1" value="왓챠">왓챠</input>
+            </label>
+            <label for="recommend1_3">
+                <input type="radio" id="recommend1_3" name="recommend1" value="티빙">티빙</input>
+            </label>
+            <label for="recommend1_4">
+                <input type="radio" id="recommend1_4" name="recommend1" value="디즈니플러스">디즈니플러스</input>
+            </label>
+            <label for="recommend1_5">
+                <input type="radio" id="recommend1_5" name="recommend1" value="사용하지않음">사용하지않음.</input>
+            </label>
+        </div>
+        
+        <!-- OTT 사용이유  -->
+        <div class="form-control">
+            <label>
+                2. 해당 OTT 이용하시는 이유가 무엇인가요?
+            </label>
+            <!-- Input Type Radio Button -->
+            <label for="recommend2_1">
+                <input type="radio"
+                    id="recommend2_1"
+                    name="recommend2" value="양질의컨텐츠">양질의 컨텐츠.</input>
+            </label>
+            <label for="recommend2_2">
+                <input type="radio"
+                    id="recommend2_2"
+                    name="recommend2" value="깔끔한UI">깔끔한 UI.</input>
+            </label>
+            <label for="recommend2_3">
+                <input type="radio"
+                    id="recommend2_3"
+                    name="recommend2" value="적당한가격">적당한 가격.</input>
+            </label>
+            <label for="recommend2_4">
+                <input type="radio"
+                    id="recommend2_4"
+                    name="recommend2" value="지인의추천">지인의 추천</input>
+            </label>
+            <label for="recommend2_5">
+                <input type="radio"
+                    id="recommend2_5"
+                    name="recommend2" value="이용하지않음">이용하지 않음</input>
+            </label>
+        </div>
+		
+		<!-- OTT_Genre -->
+		<div class="form-control">
+			<label> 3. 주로 시청하는 장르를 선택해주세요. </label>
+			<!-- Input Type Radio Button -->
+			<label for="recommend3_1"> <input type="radio" id="recommend3_1"
+				name="recommend3" value="외국드라마">외국 드라마</input>
+			</label> <label for="recommend3_2"> <input type="radio" id="recommend3_2"
+				name="recommend3" value="외국영화">외국 영화</input>
+			</label> <label for="recommend3_3"> <input type="radio" id="recommend3_3"
+				name="recommend3" value="한국드라마">한국 드라마</input>
+			</label> <label for="recommend3_4"> <input type="radio" id="recommend3_4"
+				name="recommend3" value="한국영화">한국 영화</input>
+			</label> <label for="recommend3_5"> <input type="radio" id="recommend3_5"
+				name="recommend3" value="시사/교양/다큐">시사/교양/다큐</input>
+			</label>
+		</div>
+		
+		<!-- OTT 사용시간  -->
+		<div class="form-control">
+			<label> 4. 해당 OTT 서비스를 일주일에 얼마나 이용하는지 골라주세요.  </label>
+			<!-- Input Type Radio Button -->
+			<label for="recommend4_1"> <input type="radio" id="recommend4_1"
+				name="recommend4" value="3시간이하">3시간 이하</input>
+			</label> <label for="recommend4_2"> <input type="radio" id="recommend4_2"
+				name="recommend4" value="3시간초과6시간이하">3시간 초과 6시간 이하</input>
+			</label> <label for="recommend4_3"> <input type="radio" id="recommend4_3"
+				name="recommend4" value="6시간초과9시간이하">6시간 초과 9시간 이하</input>
+			</label> <label for="recommend4_4"> <input type="radio" id="recommend4_4"
+				name="recommend4" value="9시간초과">9시간 초과</input>
+			</label>
+		</div>
+
+		<!-- Multi-line Text Input Control -->
+		<button id="submitBtn" type="submit" name="btn" form="form" value="submit">설문조사 완료</button>
+		<button id="getDatasBtn" name="btn" value="get" onclick="location.href='controller'">설문 결과 보기</button>
+	</form>
+	
+	
+</body>
+
+</html>
